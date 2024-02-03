@@ -11,8 +11,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.fail;
+import static org.assertj.core.api.Assertions.*;
 
 public class CliTest {
 
@@ -85,7 +84,7 @@ public class CliTest {
     StringWriter writer = new StringWriter();
     LocalDate notThursday = LocalDate.now();
     if (notThursday.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
-      notThursday.plusDays(1);
+      notThursday = notThursday.plusDays(1);
     }
     Cli cli = Cli.create(">", reader, new BufferedWriter(writer), notThursday);
     cli.run();
@@ -111,7 +110,7 @@ public class CliTest {
     StringWriter writer = new StringWriter();
     LocalDate notThursday = LocalDate.now();
     if (notThursday.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
-      notThursday.plusDays(1);
+     notThursday = notThursday.plusDays(1);
     }
     Cli cli = Cli.create(">", reader, new BufferedWriter(writer), notThursday);
     cli.run();
@@ -136,7 +135,7 @@ public class CliTest {
     StringWriter writer = new StringWriter();
     LocalDate notThursday = LocalDate.now();
     if (notThursday.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
-      notThursday.plusDays(1);
+      notThursday = notThursday.plusDays(1);
     }
     Cli cli = Cli.create(">", reader, new BufferedWriter(writer), notThursday);
     cli.run();
@@ -162,7 +161,7 @@ public class CliTest {
     StringWriter writer = new StringWriter();
     LocalDate thursday = LocalDate.now();
     while (!thursday.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
-      thursday.plusDays(1);
+      thursday = thursday.plusDays(1);
     }
     Cli cli = Cli.create(">", reader, new BufferedWriter(writer), thursday);
     cli.run();
@@ -189,7 +188,7 @@ public class CliTest {
     StringWriter writer = new StringWriter();
     LocalDate thursday = LocalDate.now();
     while (!thursday.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
-      thursday.plusDays(1);
+      thursday = thursday.plusDays(1);
     }
     Cli cli = Cli.create(">", reader, new BufferedWriter(writer), thursday);
     cli.run();
