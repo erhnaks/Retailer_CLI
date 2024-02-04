@@ -5,6 +5,18 @@ import java.util.List;
 
 public class Database {
 
+    private static Database INSTANCE = null;
+
+    public static Database getInstance() {
+        if (INSTANCE == null) {
+            return new Database();
+        }
+        return INSTANCE;
+    }
+
+    private Database() {
+    }
+
     private static final List<Trolley> data = new ArrayList();
 
     public void add(Trolley trolley) {

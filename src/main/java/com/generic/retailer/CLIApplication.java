@@ -5,7 +5,7 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class Application {
+public class CLIApplication {
 
   public static void main(String[] args) {
 
