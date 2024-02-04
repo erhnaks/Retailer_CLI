@@ -131,6 +131,22 @@ Comparison of the corrected version with the initial test receipt (NB: PLEASE SE
   }
 ]`
 
+## Retailer initial screen:
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/d12e0419-059a-4b11-804b-93e86bb56e76)
+
+### Retailer before checkout:
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/3cf2175e-6089-45f7-a64b-0c36536ca266)
+
+
+### Retailer checkout 2:
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/aef4e456-54a0-4406-a6fe-c5a542fb964f)
+
+### Retailer checkout 3:
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/e36097e0-0dbf-42ae-821a-96e30ef6e039)
 
 
 Author: Erhan Aksu
