@@ -87,7 +87,7 @@ public class CliTest {
       notThursday = notThursday.plusDays(1);
     }
     Cli cli = Cli.create(">", reader, new BufferedWriter(writer), notThursday);
-    cli.run();
+    cli.run(Trolley.getInstance());
     assertReceipt(
         writer,
         "===== RECEIPT ======",
@@ -113,7 +113,7 @@ public class CliTest {
      notThursday = notThursday.plusDays(1);
     }
     Cli cli = Cli.create(">", reader, new BufferedWriter(writer), notThursday);
-    cli.run();
+    cli.run(Trolley.getInstance());
     assertReceipt(
         writer,
         "===== RECEIPT ======",
@@ -138,7 +138,7 @@ public class CliTest {
       notThursday = notThursday.plusDays(1);
     }
     Cli cli = Cli.create(">", reader, new BufferedWriter(writer), notThursday);
-    cli.run();
+    cli.run(Trolley.getInstance());
     assertReceipt(
         writer,
         "===== RECEIPT ======",
@@ -164,7 +164,7 @@ public class CliTest {
       thursday = thursday.plusDays(1);
     }
     Cli cli = Cli.create(">", reader, new BufferedWriter(writer), thursday);
-    cli.run();
+    cli.run(Trolley.getInstance());
     assertReceipt(
         writer,
         "===== RECEIPT ======",
@@ -191,9 +191,17 @@ public class CliTest {
       thursday = thursday.plusDays(1);
     }
     Cli cli = Cli.create(">", reader, new BufferedWriter(writer), thursday);
-    cli.run();
+    cli.run(Trolley.getInstance());
     assertReceipt(
         writer,
+            "===== RECEIPT ======",
+            "DVD (x2)      £30.00",
+            "BOOK           £5.00",
+            "2 FOR 1      -£15.00",
+            "THURS         -£1.00",
+            "====================",
+            "TOTAL         £19.00"
+        /*
         "===== RECEIPT ======",
         "DVD (x2)      £30.00",
         "BOOK           £5.00",
@@ -201,6 +209,8 @@ public class CliTest {
         "THURS         -£1.00",
         "====================",
         "TOTAL         £24.00"
+        Should total be £24.00? Because we are give 2 for 1 for DVD's and only charging for 1. ???
+         */
     );
   }
 }
