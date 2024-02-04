@@ -1,6 +1,29 @@
-# **Documentation**
+# **Retailer Project**
 
-## **Task 1:**
+#### Initial README.md file for giving task:
+
+Please see original readme for this task: `Initial_README.md`
+
+## **Brief Description**
+
+#### Task ONE: 
+The initial objective is to develop a Command Line Interface (CLI) application that manages three product types: books, CDs, and DVDs. 
+The retailer provides special offers every Thursday, offering a 20% discount on all purchases or a 2-for-1 deal on DVDs. 
+Upon completing a transaction, a receipt detailing the purchase is output to the console in a specific format mentioned in `Initial_README.md`.
+
+To test this feature, execute the following command:
+
+`CLIApplication.java`
+
+Please ensure that you have compiled the application before attempting to run it. Use the following Maven command to build the project:
+
+`mvn clean install`
+
+#### Task TWO:
+
+The second task involves integrating Spring and React into the project. The detailed requirements for this integration are outlined in the `Initial_README.md` document.
+
+## **Task ONE:**
 
 ## GitHub link for development cycle:
 
@@ -54,9 +77,9 @@ Comparison of the corrected version with the initial test receipt (NB: PLEASE SE
 
 ![Screenshot 2024-02-04 112456](https://github.com/erhnaks/String_Calculator/assets/97620234/3990f8b5-de8c-4225-877f-3ff4875e1840)
 
-## **Task 2:**
+## **Task TWO:**
 
-### React and Spring implementation:
+### React and Spring Implementation:
 
 #### Get call Postman response:
 `[
