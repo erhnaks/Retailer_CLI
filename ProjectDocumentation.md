@@ -133,20 +133,29 @@ Comparison of the corrected version with the initial test receipt (NB: PLEASE SE
 
 ## Retailer initial screen:
 
-![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/d12e0419-059a-4b11-804b-93e86bb56e76)
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/75c24fa5-55ea-46a6-a822-fbb16d0af165)
 
 ### Retailer before checkout:
 
-![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/3cf2175e-6089-45f7-a64b-0c36536ca266)
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/67365143-535f-4536-8115-ebcd3dcfa167)
 
+### Retailer after checkout:
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/327d928b-7842-4cc9-9f32-f594a78b1d8b)
 
 ### Retailer checkout 2:
 
-![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/aef4e456-54a0-4406-a6fe-c5a542fb964f)
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/fa8b1c13-0bd7-4830-8292-8979a8104ca5)
 
 ### Retailer checkout 3:
 
-![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/e36097e0-0dbf-42ae-821a-96e30ef6e039)
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/13707ea5-e087-4cba-a6dc-4a0fed497323)
+
+### Retailer report:
+
+##### Note: The current implementation presents a list of the five latest completed transactions. Clicking on any transaction within this history list updates the displayed summary selections. However, the ability to select multiple transactions from the history list and calculate the total sum of those selected transactions is currently unavailable. Although feature is required as one of task 2 requirement and is intended to be developed. As part of this development process, there will be a learning phase for me to understand the necessary techniques and methodologies to implement this functionality effectively.
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/d0a869cb-699c-4e1d-9176-927606db91e5)
 
 
 Author: Erhan Aksu
