@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import TrolleyForm from './components/TrolleyForm';
 import TrolleyList from './components/TrolleyList';
+import './index.css';
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -33,7 +34,7 @@ function App() {
                 body: JSON.stringify(trolleyData)
             });
             if (response.ok) {
-               fetchTrolleys();
+                fetchTrolleys();
             } else {
                 console.error('Failed to create trolley');
             }
@@ -41,22 +42,17 @@ function App() {
             console.error('Error creating trolley:', error);
         }
     };
-
     return (
-        <div className="App" style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minHeight: '100vh',
-            padding: '1rem'
-        }}>
-            <div style={{width: '35%', marginRight: 'auto', marginLeft: '0'}}>
-
-                <TrolleyList trolleys={trolleys}/>
-            </div>
-            <div style={{width: '45%', marginLeft: 'auto', marginRight: '0'}}>
-                <TrolleyForm onCreateTrolley={handleCreateTrolley}/>
+        <div className="App">
+            <div className="container">
+                <div className="history-summary">
+                    <div className="history">
+                        <TrolleyList trolleys={trolleys} />
+                    </div>
+                </div>
+                <div className="trolley-form">
+                    <TrolleyForm onCreateTrolley={handleCreateTrolley} products={products} />
+                </div>
             </div>
         </div>
     );

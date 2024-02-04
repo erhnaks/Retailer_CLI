@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../index.css';
 
 function TrolleyList({ trolleys }) {
     const [selectedOrders, setSelectedOrders] = useState([]);
@@ -16,10 +17,8 @@ const handleClick = (order) => {
     setSelectedOrders(prevOrders => {
         const isAlreadySelected = prevOrders.find(o => o.id === order.id);
         if (isAlreadySelected) {
-            // Order is already selected, so replace it with the new order details
             return prevOrders.map(o => o.id === order.id ? order : o);
         } else {
-            // Order is not selected, so add it to the array
             return [...prevOrders, order];
         }
     });
@@ -32,7 +31,7 @@ const handleClick = (order) => {
 
     return (
         <div>
-            <div style={{ border: '2px solid #ccc', padding: '1rem', borderRadius: '20px' }}>
+            <div className="history">
                 <h3>History</h3>
                 <ul>
                     {lastFiveOrders.map((order, index) => (
@@ -42,7 +41,7 @@ const handleClick = (order) => {
                     ))}
                 </ul>
             </div>
-            <div style={{ border: '2px solid #ccc', padding: '1rem', borderRadius: '20px', marginTop: '1rem' }}>
+            <div className="summary">
                 <h3>Summary of selected trolleys:</h3>
                 <p>
                     Total: £{totalSelectedTotal},

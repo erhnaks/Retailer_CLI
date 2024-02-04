@@ -1,12 +1,18 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
+import '../index.css';
 
-function TrolleyForm({onCreateTrolley}) {
-    const [items, setItems] = useState([
-        {type: 'BOOK', price: 5, quantity: 0},
-        {type: 'CD', price: 10, quantity: 0},
-        {type: 'DVD', price: 15, quantity: 0},
-    ]);
+function TrolleyForm({ onCreateTrolley, products }) {
+    const [items, setItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
+
+    useEffect(() => {
+        const formattedItems = products.map(product => ({
+            type: product.type,
+            price: product.price,
+            quantity: 0
+        }));
+        setItems(formattedItems);
+    }, [products]);
 
     const handleQuantityChange = (index, increment) => {
         const newItems = [...items];
@@ -32,61 +38,56 @@ function TrolleyForm({onCreateTrolley}) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onCreateTrolley({items});
-        setItems([
-            {type: 'BOOK', price: 5, quantity: 0},
-            {type: 'CD', price: 10, quantity: 0},
-            {type: 'DVD', price: 15, quantity: 0},
-        ]);
+        onCreateTrolley({ items });
+        setItems(products.map(product => ({
+            type: product.type,
+            price: product.price,
+            quantity: 0
+        })));
         setTotalPrice(0);
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <style>{`
-                table, th, td {
-                    border: 2px solid black;
-                    border-collapse: collapse;
-                }
-            `}</style>
+        <form onSubmit={handleSubmit} className="trolley-form">
             <table>
                 <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                </tr>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
                 </thead>
                 <tbody>
-                {items.map((item, index) => (
-                    <>
-                        <tr key={index}>
-                            <td>{item.type}</td>
-                            <td>£{item.price}</td>
-                            <td>
-                                <button type="button" onClick={() => handleQuantityChange(index, -1)}>-</button>
-                                {item.quantity}
-                                <button type="button" onClick={() => handleQuantityChange(index, 1)}>+</button>
-                            </td>
-                            <td>£{item.price * item.quantity}</td>
-                        </tr>
-                        {item.type === 'DVD' && item.quantity >= 2 && (
-                            <tr>
-                                <td colSpan="3" style={{textAlign: 'left'}}>
-                                    2 for 1
+                    {items.map((item, index) => (
+                        <>
+                            <tr key={index}>
+                                <td>{item.type}</td>
+                                <td>£{item.price}</td>
+                                <td>
+                                    <button type="button" className="decrement-btn" 
+                                    onClick={() => handleQuantityChange(index, -1)}>-</button>
+                                    {item.quantity}
+                                    <button type="button" onClick={() => handleQuantityChange(index, 1)}>+</button>
                                 </td>
-                                <td>-£15</td>
+                                <td>£{item.price * item.quantity}</td>
                             </tr>
-                        )}
-                    </>
-                ))}
+                            {item.type === 'DVD' && item.quantity >= 2 && (
+                                <tr>
+                                    <td colSpan="3" style={{ textAlign: 'left' }}>
+                                        2 for 1
+                                    </td>
+                                    <td>-£15</td>
+                                </tr>
+                            )}
+                        </>
+                    ))}
                 </tbody>
             </table>
             <div>
                 <strong>Total: £{totalPrice}</strong>
             </div>
-            <button type="submit">Checkout</button>
+            <button type="submit" className="checkout-btn">Checkout</button>
         </form>
     );
 }
