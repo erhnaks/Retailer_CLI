@@ -37,14 +37,15 @@ body {
   display: flex;
   flex-direction: column;
   width: 50%;
-  margin-top: 5rem;
-  margin-left: 4rem;
+  margin-top:5rem;
+  margin-left: 5rem;
  }
  
  /* History section */
  .history {
-  margin-bottom: 1rem;
- }
+    margin-bottom: 1rem;
+    min-height: 250px; /* Add a minimum height to maintain consistent size */
+   }
  
  /* Summary section */
 
