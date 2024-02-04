@@ -1,52 +1,161 @@
-# Generic Retailer
+# **Documentation**
 
-Generic retailer is creating a self service CLI to allow developers to order products.
+## **Task 1:**
 
-A developer started implementing but didn't get very far at all, the only thing left are these notes.
+## GitHub link for development cycle:
 
-Prices:
- - Book £5
- - CD  £10
- - DVD £15
- 
-Todo's:
+[Retailer_CLI - GitHub](https://github.com/erhnaks/Retailer_CLI)
 
- - [ ] Calculate total
- - [ ] Print receipt (show items, price and total)
-   - [ ] Aggregate items in receipt
-   - [ ] items left aligned, prices right aligned
-   - [ ] see CliTest fo receipt format
- - [ ] Add discounts (2 for 1 on DVDs and 20% off on Thursdays)
-   - [ ] Only one discount can apply to an item but customer should get best available discount per item. i.e. 3 DVDs on a Thursday would be £27 (2 for 1 and 20% off the 3rd).
+### Branches:
 
-## The 1st Task
+- main
+- development
+- feature-class
+- feature-retailer-business-logic-implementation
+- bug-testcase-in-infinite-loop
 
-Given the above please finish implementing the rest of the system. 
-Whilst this store has very few items at the moment, we know it's going to grow massively in the next few months.
-Please create a solution that is extendable and makes use of common patterns and OO concepts where appropriate.
-Please feel free to make use any third-party libraries.
+## Initial Tests Failures:
 
-## The 2nd Task
-Due to its popularity, they decide to implement a browser user interface to this functionality with some additional capabilities.
+In order to begin developing test scenarios, I attempted to run the tests only to have them fail. 
+I discovered that one test was stuck in an infinite loop, which was the reason tests were failing to finish. 
+In order to match the date == Thursday, I also had to adjust another test that involved adding one day to the current date.
 
-Todo's:
+Initial Test:
 
- - [ ] Implement a UI for use in a browser to add Books, CDs and DVDs to checkout with discount
- - [ ] Once a trolley is checked out it is saved to the server (Database.java)
- - [ ] The list of previous checkouts is listed with the number of items and discount 
- - [ ] The user is able to choose checked out trollies to see a summary
+`LocalDate thursday = LocalDate.now();
+while (!thursday.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
+thursday.plusDays(1);
+}`
 
-Please use react and any other third-party libraries to implement this functionality.
-Some screenshots are shown below to explain the functionality further and to suggest a design.
+After the infinite loop problem was fixed:
 
-![1](retailer-initial.png)
+`LocalDate thursday = LocalDate.now();
+while (!thursday.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
+thursday = thursday.plusDays(1);
+}`
 
-![2](retailer-before-checkout.png)
+Screenshot of the initial test run:
 
-![3](retailer-after-checkout.png)
+![Screenshot 2024-02-03 122703](https://github.com/erhnaks/String_Calculator/assets/97620234/1ad7ec89-3126-4958-af48-51d3b2e25738)
 
-![4](retailer-checkout-2.png)
+Another problem with the test testDiscount2For1OnThursdays() is that it was failing because the sum seemed off. 
+Would you kindly look at the below? The original test case was manually corrected and commented out. 
+Kindly inform me if this was incorrect.
 
-![5](retailer-checkout-3.png)
+Comparison of the corrected version with the initial test receipt (NB: PLEASE SEE COMMENT):
 
-![6](retailer-report.png)
+![image](https://github.com/erhnaks/String_Calculator/assets/97620234/66dcbb76-aab7-4a6e-a1a9-11fa3efe8d3c)
+
+### Running the tests:
+
+![Screenshot 2024-02-04 111114](https://github.com/erhnaks/String_Calculator/assets/97620234/3b43c803-7c5e-4879-b030-7ef98960cd39)
+
+### CLI test-run:
+
+![Screenshot 2024-02-04 112456](https://github.com/erhnaks/String_Calculator/assets/97620234/3990f8b5-de8c-4225-877f-3ff4875e1840)
+
+## **Task 2:**
+
+### React and Spring implementation:
+
+#### Get call Postman response:
+`[
+  {
+    "type": "BOOK",
+    "price": 5
+  },
+  {
+    "type": "CD",
+    "price": 10
+  },
+  {
+    "type": "DVD",
+    "price": 15
+  }
+]`
+
+#### Post response in Postman returns 201 Created
+`curl -X 'POST' \
+  'http://localhost:8080/api/trolley' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "items": [
+    {
+      "type": "BOOK",
+      "quantity": 1
+    },     {
+      "type": "CD",
+      "quantity": 2
+    }, 
+    {
+      "type": "DVD",
+      "quantity": 3
+    }
+  ]
+}'`
+
+#### Get call to retrieve trollies list with Postman:
+`[
+  {
+    "items": [
+      {
+        "product": {
+          "type": "DVD",
+          "price": 15
+        },
+        "quantity": 3,
+        "discount": 0,
+        "total": 45
+      },
+      {
+        "product": {
+          "type": "BOOK",
+          "price": 5
+        },
+        "quantity": 1,
+        "discount": 0,
+        "total": 5
+      },
+      {
+        "product": {
+          "type": "CD",
+          "price": 10
+        },
+        "quantity": 2,
+        "discount": 0,
+        "total": 20
+      }
+    ],
+    "totalDiscount": 15
+  }
+]`
+
+## Retailer initial screen:
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/75c24fa5-55ea-46a6-a822-fbb16d0af165)
+
+### Retailer before checkout:
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/67365143-535f-4536-8115-ebcd3dcfa167)
+
+### Retailer after checkout:
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/327d928b-7842-4cc9-9f32-f594a78b1d8b)
+
+### Retailer checkout 2:
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/fa8b1c13-0bd7-4830-8292-8979a8104ca5)
+
+### Retailer checkout 3:
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/13707ea5-e087-4cba-a6dc-4a0fed497323)
+
+### Retailer report:
+
+##### Note: The current implementation presents a list of the five latest completed transactions. Clicking on any transaction within this history list updates the displayed summary selections. However, the ability to select multiple transactions from the history list and calculate the total sum of those selected transactions is currently unavailable. Although feature is required as one of task 2 requirement and is intended to be developed. As part of this development process, there will be a learning phase for me to understand the necessary techniques and methodologies to implement this functionality effectively.
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/d0a869cb-699c-4e1d-9176-927606db91e5)
+
+
+Author: Erhan Aksu
