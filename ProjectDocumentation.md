@@ -54,4 +54,108 @@ Comparison of the corrected version with the initial test receipt (NB: PLEASE SE
 
 ![Screenshot 2024-02-04 112456](https://github.com/erhnaks/String_Calculator/assets/97620234/3990f8b5-de8c-4225-877f-3ff4875e1840)
 
+## **Task 2:**
+
+### React and Spring implementation:
+
+#### Get call Postman response:
+`[
+  {
+    "type": "BOOK",
+    "price": 5
+  },
+  {
+    "type": "CD",
+    "price": 10
+  },
+  {
+    "type": "DVD",
+    "price": 15
+  }
+]`
+
+#### Post response in Postman returns 201 Created
+`curl -X 'POST' \
+  'http://localhost:8080/api/trolley' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "items": [
+    {
+      "type": "BOOK",
+      "quantity": 1
+    },     {
+      "type": "CD",
+      "quantity": 2
+    }, 
+    {
+      "type": "DVD",
+      "quantity": 3
+    }
+  ]
+}'`
+
+#### Get call to retrieve trollies list with Postman:
+`[
+  {
+    "items": [
+      {
+        "product": {
+          "type": "DVD",
+          "price": 15
+        },
+        "quantity": 3,
+        "discount": 0,
+        "total": 45
+      },
+      {
+        "product": {
+          "type": "BOOK",
+          "price": 5
+        },
+        "quantity": 1,
+        "discount": 0,
+        "total": 5
+      },
+      {
+        "product": {
+          "type": "CD",
+          "price": 10
+        },
+        "quantity": 2,
+        "discount": 0,
+        "total": 20
+      }
+    ],
+    "totalDiscount": 15
+  }
+]`
+
+## Retailer initial screen:
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/75c24fa5-55ea-46a6-a822-fbb16d0af165)
+
+### Retailer before checkout:
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/67365143-535f-4536-8115-ebcd3dcfa167)
+
+### Retailer after checkout:
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/327d928b-7842-4cc9-9f32-f594a78b1d8b)
+
+### Retailer checkout 2:
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/fa8b1c13-0bd7-4830-8292-8979a8104ca5)
+
+### Retailer checkout 3:
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/13707ea5-e087-4cba-a6dc-4a0fed497323)
+
+### Retailer report:
+
+##### Note: The current implementation presents a list of the five latest completed transactions. Clicking on any transaction within this history list updates the displayed summary selections. However, the ability to select multiple transactions from the history list and calculate the total sum of those selected transactions is currently unavailable. Although feature is required as one of task 2 requirement and is intended to be developed. As part of this development process, there will be a learning phase for me to understand the necessary techniques and methodologies to implement this functionality effectively.
+
+![image](https://github.com/erhnaks/Retailer_CLI/assets/97620234/d0a869cb-699c-4e1d-9176-927606db91e5)
+
+
 Author: Erhan Aksu

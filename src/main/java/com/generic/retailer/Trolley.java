@@ -17,6 +17,13 @@ public final class Trolley {
         return INSTANCE;
     }
 
+    public Trolley() {
+    }
+
+    public void setItems(Map<ProductType, TrolleyItem> items) {
+        this.items = items;
+    }
+
     private Trolley(Map<ProductType, TrolleyItem> items) {
         this.items = items;
     }

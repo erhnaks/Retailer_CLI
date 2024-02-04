@@ -68,7 +68,7 @@ public final class Cli implements AutoCloseable {
         while (line.isPresent()) {
             ProductType productType = buildProductType(line.get().toUpperCase());
             if (productType != null) {
-                trolley.add(buildProduct(productType));
+                trolley.add(ProductUtil.buildProduct(productType));
             }
             writeLine("Would you like anything else?");
             prompt();
@@ -86,7 +86,9 @@ public final class Cli implements AutoCloseable {
                         trolleyItem.getProduct().getType(), POUND_SYMBOL + trolleyItem.getProduct().getPrice().setScale(2)));
             } else {
                 writeLine(String.format(MULTIPLE_ITEM_LINE_FORMAT,
-                        trolleyItem.getProduct().getType() + " (x" + trolleyItem.getQuantity() + ")", POUND_SYMBOL + trolleyItem.getTotal().setScale(2)));
+                        trolleyItem.getProduct()
+                                .getType() + " (x" + trolleyItem.getQuantity() + ")", POUND_SYMBOL + trolleyItem
+                                .getTotal().setScale(2)));
             }
         }
         BigDecimal thursdayDiscount = trolley.applyDiscount(new ThursdayDiscount(this.date));
@@ -117,16 +119,4 @@ public final class Cli implements AutoCloseable {
         writer.close();
     }
 
-    private Product buildProduct(ProductType productType) {
-        switch (productType) {
-            case BOOK:
-                return new Book();
-            case CD:
-                return new CD();
-            case DVD:
-                return new DVD();
-            default:
-                return null;
-        }
-    }
 }
