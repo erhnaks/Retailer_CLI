@@ -36,16 +36,38 @@ body {
  .history-summary {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 35%;
   margin-top:5rem;
   margin-left: 5rem;
  }
  
  /* History section */
  .history {
-    margin-bottom: 1rem;
-    min-height: 250px;
-   }
+  margin-bottom: 2rem;
+  min-height: 250px;
+  text-align: center; /* Center the text content */
+ }
+
+   /* Styles for lists within the history section */
+.history ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: disc; /* Add bullets to the list */
+ }
+
+ /* Center the list within the history section */
+.history .centered-list {
+  display: inline-block; /* Allows centering */
+  text-align: center; /* Centers the list items */
+ }
+ 
+ 
+ .history li {
+  padding: 0.5rem 0;
+  cursor: pointer;
+  list-style-type: disc; /* Ensure list items have bullets */
+ }
+ 
 
  
  /* Styles for the trolley form */
