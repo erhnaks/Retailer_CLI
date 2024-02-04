@@ -33,13 +33,15 @@ const handleClick = (order) => {
         <div>
             <div className="history">
                 <h3>History</h3>
-                <ul>
-                    {lastFiveOrders.map((order, index) => (
-                        <li key={index} onClick={() => handleClick(order)}>
-                            <span>items: {order.totalItems}, discount: £{order.totalDiscount}</span>
-                        </li>
-                    ))}
-                </ul>
+                <div className="centered-list">
+                    <ul>
+                        {lastFiveOrders.map((order, index) => (
+                            <li key={index} onClick={() => handleClick(order)}>
+                                <span>items: {order.totalItems}, discount: £{order.totalDiscount}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
             <div className="summary">
                 <h3>Summary of selected trolleys:</h3>
