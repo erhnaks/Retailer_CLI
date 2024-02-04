@@ -54,4 +54,83 @@ Comparison of the corrected version with the initial test receipt (NB: PLEASE SE
 
 ![Screenshot 2024-02-04 112456](https://github.com/erhnaks/String_Calculator/assets/97620234/3990f8b5-de8c-4225-877f-3ff4875e1840)
 
+## **Task 2:**
+
+### React and Spring implementation:
+
+#### Get call Postman response:
+`[
+  {
+    "type": "BOOK",
+    "price": 5
+  },
+  {
+    "type": "CD",
+    "price": 10
+  },
+  {
+    "type": "DVD",
+    "price": 15
+  }
+]`
+
+#### Post response in Postman returns 201 Created
+`curl -X 'POST' \
+  'http://localhost:8080/api/trolley' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "items": [
+    {
+      "type": "BOOK",
+      "quantity": 1
+    },     {
+      "type": "CD",
+      "quantity": 2
+    }, 
+    {
+      "type": "DVD",
+      "quantity": 3
+    }
+  ]
+}'`
+
+#### Get call to retrieve trollies list with Postman:
+`[
+  {
+    "items": [
+      {
+        "product": {
+          "type": "DVD",
+          "price": 15
+        },
+        "quantity": 3,
+        "discount": 0,
+        "total": 45
+      },
+      {
+        "product": {
+          "type": "BOOK",
+          "price": 5
+        },
+        "quantity": 1,
+        "discount": 0,
+        "total": 5
+      },
+      {
+        "product": {
+          "type": "CD",
+          "price": 10
+        },
+        "quantity": 2,
+        "discount": 0,
+        "total": 20
+      }
+    ],
+    "totalDiscount": 15
+  }
+]`
+
+
+
 Author: Erhan Aksu
