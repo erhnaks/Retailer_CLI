@@ -44,10 +44,8 @@ body {
  /* History section */
  .history {
     margin-bottom: 1rem;
-    min-height: 250px; /* Add a minimum height to maintain consistent size */
+    min-height: 250px;
    }
- 
- /* Summary section */
 
  
  /* Styles for the trolley form */
