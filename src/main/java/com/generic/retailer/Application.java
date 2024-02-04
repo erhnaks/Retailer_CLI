@@ -11,8 +11,9 @@ public class Application {
 
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+    Trolley trolley = Trolley.getInstance();
     try(Cli cli = Cli.create(reader, writer)) {
-      cli.run();
+      cli.run(trolley);
     } catch (Exception e) {
       System.exit(1);
     }
