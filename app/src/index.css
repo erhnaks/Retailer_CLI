@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ }
+ 
+ code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+ }
+ 
+ /* Container for the main layout */
+ .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  padding: 1rem;
+ }
+ 
+ /* Section for the form */
+ .trolley-form {
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Horizontally center the content */
+  flex-direction: column; /* Stack children vertically */
+  width: 50%;
+  margin-left: 3rem;
+  margin-top: 5rem;
+ }
+ 
+ /* Section for the history and summary */
+ .history-summary {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-top: 5rem;
+  margin-left: 4rem;
+ }
+ 
+ /* History section */
+ .history {
+  margin-bottom: 1rem;
+ }
+ 
+ /* Summary section */
+
+ 
+ /* Styles for the trolley form */
+ .trolley-form table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+ }
+ 
+ .trolley-form th, .trolley-form td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+ }
+ 
+ .trolley-form th {
+  background-color: #f2f2f2;
+ }
+ 
+ .trolley-form tr:nth-child(even) {
+  background-color: #f2f2f2;
+ }
+ 
+ .trolley-form button {
+  background-color: #0252fd;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 10px;
+ }
+
+ .trolley-form .decrement-btn {
+  background-color: rgb(250, 52, 52);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 10px;
+ }
+ 
+ .trolley-form button:hover {
+  opacity: 0.8;
+ }
+ 
+ .trolley-form .checkout-btn {
+  background-color: #008CBA;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 1rem;
+ }
+ 
+ .trolley-form .checkout-btn:hover {
+  opacity: 0.8;
+ }
+ 
+ /* Styles for the history section */
+ .history {
+  border: 2px solid #ccc;
+  padding: 1rem;
+  border-radius: 20px;
+ }
+ 
+ /* Styles for the summary section */
+ .summary {
+  border: 2px solid #ccc;
+  padding: 1rem;
+  border-radius: 20px;
+  margin-top: 1rem;
+ }
+ 
+ /* Styles for lists within the history and summary sections */
+ .history ul, .summary p {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+ }
+ 
+ .history li {
+  padding: 0.5rem 0;
+  cursor: pointer;
+ }
+ 
+ .history li:hover {
+  background-color: #f2f2f2;
+ }
+ 
