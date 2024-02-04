@@ -12,19 +12,19 @@ function TrolleyList({ trolleys }) {
         total: trolley.items.reduce((sum, item) => sum + item.total, 0)
     }));
 
-    const handleClick = (order) => {
-        setSelectedOrders(prevOrders => {
-            const isAlreadySelected = prevOrders.find(o => o.id === order.id);
-            if (isAlreadySelected) {
-                // Order is already selected, so replace it with the new order details
-                return prevOrders.map(o => o.id === order.id ? order : o);
-            } else {
-                // Order is not selected, so add it to the array
-                return [...prevOrders, order];
-            }
-        });
-    };
-    
+const handleClick = (order) => {
+    setSelectedOrders(prevOrders => {
+        const isAlreadySelected = prevOrders.find(o => o.id === order.id);
+        if (isAlreadySelected) {
+            // Order is already selected, so replace it with the new order details
+            return prevOrders.map(o => o.id === order.id ? order : o);
+        } else {
+            // Order is not selected, so add it to the array
+            return [...prevOrders, order];
+        }
+    });
+};
+
 
     const totalSelectedItems = selectedOrders.reduce((sum, order) => sum + order.totalItems, 0);
     const totalSelectedTotal = selectedOrders.reduce((sum, order) => sum + order.total - order.totalDiscount, 0);
