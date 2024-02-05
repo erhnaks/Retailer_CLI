@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import TrolleyForm from './components/TrolleyForm';
 import TrolleyList from './components/TrolleyList';
+import { v4 as uuidv4 } from 'uuid';
 import './index.css';
 
 function App() {
@@ -21,8 +22,13 @@ function App() {
     const fetchTrolleys = async () => {
         const response = await fetch('/api/trolleys');
         const data = await response.json();
-        setTrolleys(data);
+        const trolleysWithUuids = data.map(trolley => ({
+            ...trolley,
+            uuid: uuidv4() 
+        }));
+        setTrolleys(trolleysWithUuids);
     };
+    
 
     const handleCreateTrolley = async (trolleyData) => {
         try {
