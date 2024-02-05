@@ -95,6 +95,7 @@ body {
   background-color: #0252fd;
   color: white;
   padding: 8px 16px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
   margin-right: 10px;
@@ -110,7 +111,19 @@ body {
   margin-right: 10px;
   margin-left: 10px;
  }
- 
+
+.reset-button {
+
+  background-color: rgba(197, 194, 14, 0.829);
+  color: white;
+  padding: 8px 16px;
+  margin-top: 0.5rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 10px;
+ }
  .trolley-form button:hover {
   opacity: 0.8;
  }
@@ -128,7 +141,11 @@ body {
  .trolley-form .checkout-btn:hover {
   opacity: 0.8;
  }
- 
+
+.highlighted-order {
+  background-color: rgba(7, 179, 30, 0.534);
+}
+
  /* Styles for the history section */
  .history {
   border: 2px solid #ccc;
